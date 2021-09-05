@@ -1,6 +1,13 @@
-import { Table, Column, Model } from 'sequelize-typescript';
+import { Table, Column, Model, DataType } from 'sequelize-typescript';
 @Table
 export class Place extends Model {
+  @Column({
+    defaultValue: DataType.UUIDV4,
+    primaryKey: true,
+    type: DataType.UUID,
+  })
+  id: string;
+
   @Column
   name: string;
 
