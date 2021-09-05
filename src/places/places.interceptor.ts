@@ -14,8 +14,8 @@ export class PlacesInterceptor implements NestInterceptor {
     context: ExecutionContext,
     next: CallHandler,
   ): Observable<CreatePlaceDto> {
-    return next
-      .handle()
-      .pipe(map((flow) => ({ ...flow.dataValues, likes: 0, rating: 0 })));
+    const request = context.switchToHttp().getRequest();
+    request.body = { ...request.body, likes: 0, rating: 0 };
+    return next.handle().pipe(map((flow) => flow));
   }
 }

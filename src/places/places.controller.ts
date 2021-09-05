@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { PlacesService } from './places.service';
 import { CreatePlaceDto } from './dto/create-place.dto';
-import { PlacesInterceptor } from './place.interceptor';
+import { PlacesInterceptor } from './places.interceptor';
 // import { UpdatePlaceDto } from './dto/update-place.dto';
 @UseInterceptors(PlacesInterceptor)
 @Controller('places')
